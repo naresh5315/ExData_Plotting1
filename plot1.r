@@ -1,0 +1,7 @@
+getwd()
+setwd("C:/Users/Naresh/Desktop/DATA/p1")
+getwd()
+data = read.table("household_power_consumption.txt",header=TRUE, sep=";", stringsAsFactors=FALSE, dec=".")
+datafiltered = subset(data,data$Date=="1/2/2007" | data$Date =="2/2/2007")
+GlobalActivePower = as.numeric(datafiltered$Global_active_power)
+hist(GlobalActivePower, col="red", main="Global Active Power", xlab="Global Active Power (kilowatts)")
