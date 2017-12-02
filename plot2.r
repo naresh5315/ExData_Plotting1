@@ -1,0 +1,8 @@
+getwd()
+setwd("C:/Users/Naresh/Desktop/DATA/p1")
+getwd()
+data = read.table("household_power_consumption.txt",header=TRUE, sep=";", stringsAsFactors=FALSE, dec=".")
+datafiltered = subset(data,data$Date=="1/2/2007" | data$Date =="2/2/2007")
+GlobalActivePower = as.numeric(datafiltered$Global_active_power)
+Timeformat = strptime(paste(datafiltered$Date, datafiltered$Time, sep=" "), "%d/%m/%Y %H:%M:%S")
+plot(Timeformat, GlobalActivePower, type="l", xlab="", ylab="GLobal Active Power (kilowatts)")
